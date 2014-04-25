@@ -3,15 +3,27 @@
 " YouCompleteMe
 " vim-cute-python
 "
+" For editing html:
+" HTML-AutoCloseTag
+"
 " Vundle configuration
 set nocompatible
 filetype off
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/vundle
+call vundle#begin()
 Plugin 'gmarik/vundle'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ehamberg/vim-cute-python'
+Plugin 'amirh/Html-AutoCloseTag'
+
+" End Vundle configuration
+call vundle#end()
+" Uncomment the following to have Vim load indentation rules and plugins
+" according to the detected filetype.
+if has("autocmd")
+  filetype plugin indent on
+endif
 
 syntax on
 
@@ -23,12 +35,6 @@ set background=dark
 " reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-
-" Uncomment the following to have Vim load indentation rules and plugins
-" according to the detected filetype.
-if has("autocmd")
-  filetype plugin indent on
 endif
 
 " The following are commented out as they cause vim to behave a lot
