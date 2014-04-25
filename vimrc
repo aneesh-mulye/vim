@@ -3,9 +3,6 @@
 " YouCompleteMe
 " vim-cute-python
 "
-" For editing html:
-" HTML-AutoCloseTag
-"
 " Vundle configuration
 set nocompatible
 filetype off
@@ -15,7 +12,6 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ehamberg/vim-cute-python'
-Plugin 'amirh/Html-AutoCloseTag'
 
 " End Vundle configuration
 call vundle#end()
