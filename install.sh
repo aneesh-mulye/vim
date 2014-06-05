@@ -11,6 +11,8 @@ wget -O ~/.vim/colors/ "http://slinky.imukuppi.org/zenburn/zenburn.vim"
 mkdir -p ~/.vim/bundle
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
+# Copy over after/ (fix Python ftplugin indentation)
+cp -r after ~/.vim/after
 # Copy over the vimrc
 cp vimrc ~/.vimrc
 # Install all vundle plugins
