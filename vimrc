@@ -12,6 +12,7 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ehamberg/vim-cute-python'
+Plugin 'fatih/vim-go'
 
 " End Vundle configuration
 call vundle#end()
