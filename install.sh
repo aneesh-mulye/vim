@@ -5,7 +5,7 @@ read -p "[Continue]"
 
 # Install zenburn
 mkdir -p ~/.vim/colors
-wget -O ~/.vim/colors/ "http://slinky.imukuppi.org/zenburn/zenburn.vim"
+wget -O ~/.vim/colors/zenburn.vim "http://slinky.imukuppi.org/zenburn/zenburn.vim"
 
 # Install vundle
 mkdir -p ~/.vim/bundle
@@ -19,8 +19,8 @@ cp vimrc ~/.vimrc
 vim +PluginInstall +qall
 
 # Install libclang
-sudo apt-get install libclang cmake python-dev
+sudo apt-get install libclang-dev libclang1 cmake python-dev
 mkdir ycm_build
 cd ycm_build
-cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON . ~/.vim/bundle/YouCompleteMe/cpp
+cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
 make ycm_support_libs
