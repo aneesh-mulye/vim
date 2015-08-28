@@ -12,7 +12,15 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'ehamberg/vim-cute-python'
+Plugin 'vim-scripts/DirDiff.vim'
+Plugin 'tpope/vim-surround'
 Plugin 'fatih/vim-go'
+" Rust syntax highlighting
+Plugin 'rust-lang/rust.vim'
+" Automatically close/insert brackets, parens, and quotes.
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'hdima/python-syntax'
+Plugin 'jnurmine/Zenburn'
 
 " End Vundle configuration
 call vundle#end()
@@ -23,6 +31,9 @@ if has("autocmd")
 endif
 
 syntax on
+
+" Enable full syntax highlighting for python (an option in python-syntax)
+let python_highlight_all=1
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
@@ -42,7 +53,7 @@ set showmatch		" Show matching brackets.
 set smartcase		" Do smart case matching
 "set incsearch		" Incremental search
 "set autowrite		" Automatically save before commands like :next and :make
-"set hidden             " Hide buffers when they are abandoned
+set hidden             " Hide buffers when they are abandoned
 "set mouse=a		" Enable mouse usage (all modes)
 
 " Zenburn
@@ -55,6 +66,10 @@ if exists('+columncolor')
 else
   au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
+
+" Disable ycm_extra_conf confirmation question
+let g:ycm_confirm_extra_conf = 0
+
 
 " line number settings
 set number

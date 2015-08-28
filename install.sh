@@ -1,11 +1,5 @@
 #!/bin/bash
-# Quick vim setup for Ubuntu (written for 14.04 x86_64)
-echo "This installation contains sudo commands."
-read -p "[Continue]"
-
-# Install zenburn
-mkdir -p ~/.vim/colors
-wget -O ~/.vim/colors/zenburn.vim "http://slinky.imukuppi.org/zenburn/zenburn.vim"
+# Quick vim setup for Ubuntu (for 15.04 x86_64)
 
 # Install vundle
 mkdir -p ~/.vim/bundle
@@ -18,9 +12,6 @@ cp vimrc ~/.vimrc
 # Install all vundle plugins
 vim +PluginInstall +qall
 
-# Install libclang
-sudo apt-get install libclang-dev libclang1 cmake python-dev
-mkdir ycm_build
-cd ycm_build
-cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
-make ycm_support_libs
+# Compile and install YCM support libs
+cd ~/.vim/bundle/YouCompleteMe
+./install.py --clang-completer --gocode-completer
