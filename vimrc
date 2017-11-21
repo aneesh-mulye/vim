@@ -14,14 +14,24 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'ehamberg/vim-cute-python'
 Plugin 'vim-scripts/DirDiff.vim'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-fugitive'
+Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'scrooloose/nerdtree'
 Plugin 'fatih/vim-go'
 " Rust syntax highlighting
 Plugin 'rust-lang/rust.vim'
 " Automatically close/insert brackets, parens, and quotes.
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'hdima/python-syntax'
+Plugin 'wlangstroth/vim-racket'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'luochen1990/rainbow'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'airblade/vim-gitgutter'
+" Colour scheme(s)
 Plugin 'jnurmine/Zenburn'
-
 " End Vundle configuration
 call vundle#end()
 " Uncomment the following to have Vim load indentation rules and plugins
@@ -56,8 +66,14 @@ set smartcase		" Do smart case matching
 set hidden             " Hide buffers when they are abandoned
 "set mouse=a		" Enable mouse usage (all modes)
 
-" Zenburn
+" So that colour schemes work correctly in both bash and tmux.
 set t_Co=256
+" Disable Background Color Erase (BCE) so that color schemes
+" work properly when Vim is used inside tmux and GNU screen.
+if &term =~ '256color'
+  set t_ut=
+endif
+" Set the colour scheme
 colorscheme zenburn
 
 " highlight beyond 80 columns
@@ -80,3 +96,20 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+
+" soft wrapping
+set wrap
+set linebreak
+
+" YCM FixIt keybinding
+nnoremap <F9> :YcmCompleter FixIt<CR>
+
+" Enable rainbow parentheses
+let g:rainbow_active = 1
+
+" Airline buffer line
+let g:airline#extensions#tabline#enabled = 1
+
+" Modified bash-like completion
+set wildmode=longest,list,full
+set wildmenu
